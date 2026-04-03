@@ -19,10 +19,10 @@ const featuredProductSlugs = [
 ];
 
 const routineDotColors: Record<string, string> = {
-  morning: "#C4A44A",
-  midday: "#B09880",
+  morning: "#E8C84A",
+  midday: "#7BA368",
   evening: "#8B9EB0",
-  travel: "#D0D4D8",
+  travel: "#B0A898",
 };
 
 function SectionDivider() {
@@ -58,9 +58,9 @@ export default function HomePage() {
             sizes="100vw"
             className="object-cover object-left"
           />
-          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(247,245,240,0.3)_0%,rgba(247,245,240,0.74)_46%,rgba(247,245,240,0.95)_100%)]" />
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,transparent_0%,transparent_32%,rgba(247,245,240,0.65)_52%,rgb(247,245,240)_70%)]" />
 
-          <div className="relative z-10 mx-auto flex min-h-[80vh] max-w-[1120px] items-center justify-end px-4 py-16 sm:px-6 lg:px-8">
+          <div className="relative z-10 mx-auto flex min-h-[80vh] max-w-[1120px] items-center justify-start px-4 py-16 sm:px-6 lg:px-8">
             <div className="reveal-on-scroll max-w-2xl text-right">
               <div className="eyebrow">Atlas of Rituals</div>
               <h1 className="display-title mt-6 text-3xl text-ink sm:text-5xl lg:text-6xl">
@@ -103,8 +103,8 @@ export default function HomePage() {
             <Link
               key={goal.slug}
               href={`/goals/${goal.slug}`}
-              className="surface-card tilt-card reveal-on-scroll block rounded-[1rem] border-l-4 p-6"
-              style={{ borderLeftColor: goal.accent }}
+              className="surface-card tilt-card reveal-on-scroll block rounded-[1rem] border-r-4 p-6"
+              style={{ borderRightColor: goal.accent }}
             >
               <h3 className="display-title text-3xl text-ink">{goal.name}</h3>
               <p className="mt-4 min-h-[4.5rem] text-sm leading-7 text-muted">{goal.mood}</p>
@@ -133,23 +133,21 @@ export default function HomePage() {
             <Link
               key={routine.slug}
               href={`/routines/${routine.slug}`}
-              className="surface-card tilt-card reveal-on-scroll block rounded-[1rem] p-6"
+              className="surface-card tilt-card reveal-on-scroll relative block rounded-[1rem] p-6"
             >
+              <span
+                className="absolute right-4 top-4 h-3 w-3 rounded-full"
+                style={{ backgroundColor: routineDotColors[routine.timeOfDay] ?? "#B09880" }}
+              />
               <div className="flex items-start justify-between gap-4">
-                <div className="flex items-center gap-2">
-                  <span
-                    className="h-2.5 w-2.5 rounded-full"
-                    style={{ backgroundColor: routineDotColors[routine.timeOfDay] ?? "#B09880" }}
-                  />
-                  <div className="eyebrow">{routine.timeOfDay.toUpperCase()}</div>
-                </div>
+                <div className="eyebrow">{routine.timeOfDay.toUpperCase()}</div>
                 <div className="text-sm font-medium text-muted">{routine.pace}</div>
               </div>
               <h3 className="display-title mt-10 text-2xl text-ink sm:text-3xl">{routine.name}</h3>
               <p className="mt-4 text-sm leading-7 text-muted">{routine.synopsis}</p>
-              <div className="mt-8 inline-flex items-center gap-2 text-sm font-medium text-moss">
+              <div className="mt-8 inline-flex items-center gap-2 text-sm font-medium text-[#4A6741]">
                 <span>לפתוח את המסלול</span>
-                <span aria-hidden="true">→</span>
+                <span aria-hidden="true">←</span>
               </div>
             </Link>
           ))}
