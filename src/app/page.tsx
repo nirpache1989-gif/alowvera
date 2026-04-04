@@ -126,7 +126,7 @@ export default function HomePage() {
         <SectionHeading
           eyebrow="Explore by Routine"
           title="שגרות שפשוט עובדות."
-          description="כל שגרה אומרת מה לקחת, באיזה סדר, וכמה זמן זה לוקח."
+          description="כל שגרה מגיעה עם צעדים, מוצרים ומשך זמן. לפתוח ולעשות."
         />
         <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-4" data-reveal-group>
           {routines.map((routine) => (
